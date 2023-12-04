@@ -4,10 +4,13 @@
 // example of simple erc20 token with transfers protected
 // by the Woken Exchange Timekeeper when the trading status is closed
 //
+// Custom it with your own functions, supply, name, symbol, etc
+//
 // https://woken.exchange
 //
 // SPDX-License-Identifier: MIT
 // ----------------------------------------------------------------------------
+
 
 pragma solidity ^0.8.0;
 
@@ -26,7 +29,7 @@ contract ExampleToken {
     address public wokenFactory; // Address of the Woken Exchange Factory
     address public pairAddress; // Address of the Token pair on the Woken Factory
     address public owner;
-    bool public timekeeperEnabled = false; // Check the current status of your Timekeeper
+    bool public timekeeperEnabled = false; // Status of your ERC20 Timekeeper
 
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
@@ -47,6 +50,7 @@ contract ExampleToken {
 
     constructor() {
         balanceOf[msg.sender] = totalSupply;
+        wokenFactory = 0x0Dee376e1DCB4DAE68837de8eE5aBE27e629Acd0;
         owner = msg.sender;
     }
 
