@@ -19,7 +19,7 @@ import "@openzeppelin/contracts@4.9.0/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts@4.9.0/token/ERC20/extensions/ERC20Permit.sol";
 import "@openzeppelin/contracts@4.9.0/access/Ownable.sol";
 
-contract SampleToken is ERC20, ERC20Permit, Ownable {
+contract ExampleToken is ERC20, ERC20Permit, Ownable {
     address public wokenFactory;
     address public pairAddress;
     bool public timekeeperEnabled = false;
@@ -36,9 +36,9 @@ contract SampleToken is ERC20, ERC20Permit, Ownable {
         _;
     }
 
-    constructor() ERC20("Sample Token", "ST") ERC20Permit("Sample Token") {
+    constructor() ERC20("Example Token", "ST") ERC20Permit("Example Token") {
         _mint(msg.sender, 1000000000 * 10**18);
-        wokenFactory = 0x392C5E5Ecb2e3aC9ddbb6d8219565Eb6c9CaCf64;
+        wokenFactory = 0x0Dee376e1DCB4DAE68837de8eE5aBE27e629Acd0;
     }
 
     function setWokenFactory(address _wokenFactory) external onlyOwner { //set or edit the Woken Factory Address
